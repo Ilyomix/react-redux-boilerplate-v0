@@ -1,11 +1,15 @@
+// @flow
+
 import React from 'react';
 import {
-  Switch, Route, BrowserRouter as Router, Redirect,
+  Route, BrowserRouter as Router, Redirect, Switch
 } from 'react-router-dom';
-
 import Main from '../views/Main/Main';
+import '../assets/index.css';
 
-const AppRoutes = () => (
+import type { Element } from 'react';
+
+const AppRoutes = (): Element<any> => (
   <Router>
     <Switch>
       <Redirect from="/" to="/home" exact />
@@ -14,7 +18,7 @@ const AppRoutes = () => (
       <Route
         path="*"
         exact
-        render={() => (<div>404</div>)}
+        render={(): Element<'div'> => (<div>404</div>)}
       />
     </Switch>
   </Router>
